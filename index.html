@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KC Housing</title>
+    <script>STATIC_SITE = true;</script>
+     <script src="http://d3js.org/d3.v3.min.js"></script>
+     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+      <script src="static/scatterplot.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="static/styling.css">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <link rel="stylesheet" type="text/css" href="static/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="static/css/keen-dashboards.css" />
+</head>
+<body class="application" onload= "scree_plot('sq_load');sunburn('sunburn','sunburn')">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>m
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="navbar-brand" href="./">Search for Best House</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="#" onclick="sunburn('sunburn','sunburn')">Hierarchial house data</a></li>
+          <li><a href="#" onclick="span_chart('span')">Price ranges vs Zip Code</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+      <div class="navbar-collapse collapse">
+    <input type="radio" name="editList" id="Sqft_living" onchange="sunburn('sunburn','sqft_living')" checked /><label>Sqft_living
+</label>
+    <input type="radio" name="editList" id="Bathrooms" onchange="sunburn('sunburn','bathrooms')" /><label>Bathrooms
+</label>
+    <input type="radio" name="editList" id="Floors" onchange="sunburn('sunburn','floors')" /><label>Floors
+</label>
+    <input type="radio" name="editList" id="Sqft_base" onchange="sunburn('sunburn','sqft_basement')" /><label>Sqft_base
+</label>
+    <input type="radio" name="editList" id="Sqft_above" onchange="sunburn('sunburn','sqft_above')" /><label>Sqft_above
+</label>
+    <input type="radio" name="editList" id="Sqft_lot" onchange="sunburn('sunburn','sqft_lot')" /><label>Sqft_lot
+</label>
+      </div>
+  
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="chart-wrapper">
+         
+          <div class="chart-stage">
+             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">See Important Attributes</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Squared Loadings vs House Attributes</h4>
+        </div>
+        <div id='modal'>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+            <div id="grid-1-1">
+            
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="chart-wrapper2">
+          <div class="chart-title1">
+            
+          </div>
+          <div class="chart-stage">
+           
+           
+   <div align="center" id="grid-1-2">
+              
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="chart-wrapper2">
+          <div class="chart-title">
+            Trends of different features with price
+          </div>
+          <div class="chart-stage">
+           
+           
+   <div id="grid-1-3">
+              
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="chart">
+          <div class="chart-title">
+            Interaction between all features
+          </div>
+          <div class="chart-stage">
+
+            <div id="grid-2-1">
+            
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="chart-wrapper1">
+          <div class="chart-title">
+            Number of houses vs House condition
+          </div>
+          <div class="chart-stage">
+            <div align="center" id="grid-2-2">
+            
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+<!-- end of three -->
+      
+    </div>
+  </div>
+
+  </div>
+
+  <script type="text/javascript" src="static/lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="static/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="static/lib/holderjs/holder.js"></script>
+  <script>
+    Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
+  </script>
+
+  <script type="text/javascript" src="static/lib/keen-js/dist/keen.min.js"></script>
+  <script type="text/javascript" src="static/js/meta.js"></script>
+
+</body>
+</html>
